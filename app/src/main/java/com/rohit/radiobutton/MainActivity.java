@@ -22,17 +22,23 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // RadioGroup object Instantiation
         mRadioGroupGender = findViewById(R.id.radioGroup);
+
+        // register for button on change listener.
         mRadioGroupGender.setOnCheckedChangeListener(this);
 
+        // button object instantiation
         Button mButton = findViewById(R.id.button);
 
+        // handling the button click
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mRadioGroupGender != null) {
                     String  mRegisterGender = mRadioButton.getText().toString().trim();
 
+                    // showing the text from the radiobutton in the toast message.
                     Toast.makeText(MainActivity.this, mRegisterGender, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -42,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+        // getting the checked button id.
         mRadioButton = (RadioButton) group.findViewById(checkedId);
     }
 }
